@@ -1,29 +1,47 @@
-🎭 Playwright MCP - AI-Powered Test Automation (OrangeHRM)
-Playwright TypeScript MCP OrangeHRM
+# 🎭 Playwright MCP - AI-Powered Test Automation (OrangeHRM)
 
-A Proof of Concept project demonstrating AI-powered browser test automation using Playwright integrated with the Model Context Protocol (MCP). Tests are written in TypeScript using the Page Object Model (POM) design pattern, targeting the OrangeHRM demo application.
+[![Playwright](https://img.shields.io/badge/Playwright-1.60+-45ba4b?logo=playwright)](https://playwright.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![MCP](https://img.shields.io/badge/MCP-Model%20Context%20Protocol-FF6F00)](https://modelcontextprotocol.io)
+[![OrangeHRM](https://img.shields.io/badge/OrangeHRM-Demo-orange)](https://opensource-demo.orangehrmlive.com)
 
-📋 Table of Contents
-Overview
-Architecture
-Tech Stack
-Project Structure
-Test Scenarios
-Getting Started
-Running Tests
-Page Object Model
-Data-Driven Testing
-Playwright MCP vs Playwright CLI
-Resources
-🎯 Overview
-This project showcases how AI + Playwright can automate browser testing using plain English prompts via the Model Context Protocol (MCP). Instead of writing every line of automation code manually, you describe what you want to test in natural language, and AI helps generate and execute the automation.
+A **Proof of Concept** project demonstrating **AI-powered browser test automation** using **Playwright** integrated with the **Model Context Protocol (MCP)**. Tests are written in **TypeScript** using the **Page Object Model (POM)** design pattern, targeting the [OrangeHRM demo application](https://opensource-demo.orangehrmlive.com).
 
-Key Concepts
-Component	Role	Analogy
-LLM (Large Language Model)	Understands requests & generates instructions	🧠 Brain
-Agent	Executes tasks automatically	⚡ Doer
-MCP (Model Context Protocol)	Connects AI with real tools (browsers, APIs, etc.)	🔗 Translator
-🏗 Architecture
+---
+
+## 📋 Table of Contents
+
+- [Overview](#-overview)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Test Scenarios](#-test-scenarios)
+- [Getting Started](#-getting-started)
+- [Running Tests](#-running-tests)
+- [Page Object Model](#-page-object-model)
+- [Data-Driven Testing](#-data-driven-testing)
+- [Playwright MCP vs Playwright CLI](#-playwright-mcp-vs-playwright-cli)
+- [Resources](#-resources)
+
+---
+
+## 🎯 Overview
+
+This project showcases how **AI + Playwright** can automate browser testing using **plain English prompts** via the **Model Context Protocol (MCP)**. Instead of writing every line of automation code manually, you describe what you want to test in natural language, and AI helps generate and execute the automation.
+
+### Key Concepts
+
+| Component                        | Role                                               | Analogy       |
+| -------------------------------- | -------------------------------------------------- | ------------- |
+| **LLM** (Large Language Model)   | Understands requests & generates instructions      | 🧠 Brain      |
+| **Agent**                        | Executes tasks automatically                       | ⚡ Doer       |
+| **MCP** (Model Context Protocol) | Connects AI with real tools (browsers, APIs, etc.) | 🔗 Translator |
+
+---
+
+## 🏗 Architecture
+
+```text
            Plain English Prompt
                     │
                     ▼
@@ -46,14 +64,25 @@ MCP (Model Context Protocol)	Connects AI with real tools (browsers, APIs, etc.)	
                     │
                     ▼
           Browser Automation
-💻 Tech Stack
-Technology	Purpose
-Playwright ^1.60	Browser automation framework
-TypeScript	Programming language
-MCP	AI-to-tool communication protocol
-csv-parse	CSV parsing for data-driven tests
-Node.js	Runtime environment
-📁 Project Structure
+```
+
+---
+
+## 💻 Tech Stack
+
+| Technology                                               | Purpose                           |
+| -------------------------------------------------------- | --------------------------------- |
+| **[Playwright](https://playwright.dev)** ^1.60           | Browser automation framework      |
+| **[TypeScript](https://www.typescriptlang.org/)**        | Programming language              |
+| **[MCP](https://modelcontextprotocol.io)**               | AI-to-tool communication protocol |
+| **[csv-parse](https://www.npmjs.com/package/csv-parse)** | CSV parsing for data-driven tests |
+| **Node.js**                                              | Runtime environment               |
+
+---
+
+## 📁 Project Structure
+
+```
 ├── 📂 pages/                          # Page Object Model classes
 │   ├── LoginPage.ts                   # Login page locators & actions
 │   └── PimPage.ts                     # PIM module locators & actions
@@ -84,21 +113,35 @@ Node.js	Runtime environment
 ├── 📄 playwright-context-pom.md      # MCP POM test generator context
 ├── 📄 prompts.md                     # Sample AI prompts used
 └── 📄 notes.md                       # Architecture & concept notes
-🧪 Test Scenarios
-Test File	Description	Pattern
-orangehrm-login-data-driven.spec.ts	Login validation with inline data (valid + invalid credentials)	Data-Driven
-orangehrm-login-data-driven-csv.spec.ts	Login validation using CSV data source	Data-Driven (CSV)
-orangehrm-logout.spec.ts	Login, logout, and verify redirect to login page	Linear
-orangehrm-admin-system-users.spec.ts	Navigate to Admin → verify System Users page	Linear
-orangehrm-buzz-post.spec.ts	Post a message on Buzz feed and verify it appears	Linear
-pim-search.spec.ts	Search employees by name in PIM module	Linear
-add-employee.spec.ts	Add a new employee using Page Object Model	POM
-example.spec.ts	Default Playwright sample test	Linear
-🚀 Getting Started
-Prerequisites
-Node.js (v18 or later)
-npm
-Installation
+```
+
+---
+
+## 🧪 Test Scenarios
+
+| Test File                                 | Description                                                     | Pattern           |
+| ----------------------------------------- | --------------------------------------------------------------- | ----------------- |
+| `orangehrm-login-data-driven.spec.ts`     | Login validation with inline data (valid + invalid credentials) | Data-Driven       |
+| `orangehrm-login-data-driven-csv.spec.ts` | Login validation using CSV data source                          | Data-Driven (CSV) |
+| `orangehrm-logout.spec.ts`                | Login, logout, and verify redirect to login page                | Linear            |
+| `orangehrm-admin-system-users.spec.ts`    | Navigate to Admin → verify System Users page                    | Linear            |
+| `orangehrm-buzz-post.spec.ts`             | Post a message on Buzz feed and verify it appears               | Linear            |
+| `pim-search.spec.ts`                      | Search employees by name in PIM module                          | Linear            |
+| `add-employee.spec.ts`                    | Add a new employee using Page Object Model                      | POM               |
+| `example.spec.ts`                         | Default Playwright sample test                                  | Linear            |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or later)
+- [npm](https://www.npmjs.com/)
+
+### Installation
+
+```bash
 # Clone the repository
 git clone https://github.com/pavanoltraining/POC_Playwright_MCP_orangehrm.git
 
@@ -110,21 +153,51 @@ npm install
 
 # Install Playwright browsers
 npx playwright install chromium
-▶️ Running Tests
-Run all tests
-npx playwright test
-Run a specific test file
-npx playwright test tests/orangehrm-login-data-driven.spec.ts
-Run tests in UI mode
-npx playwright test --ui
-View HTML report
-npx playwright show-report
-Run with debug mode
-npx playwright test --debug
-🧩 Page Object Model
-The project uses the Page Object Model (POM) design pattern for maintainable and reusable test code.
+```
 
-Example: LoginPage.ts
+---
+
+## ▶️ Running Tests
+
+### Run all tests
+
+```bash
+npx playwright test
+```
+
+### Run a specific test file
+
+```bash
+npx playwright test tests/orangehrm-login-data-driven.spec.ts
+```
+
+### Run tests in UI mode
+
+```bash
+npx playwright test --ui
+```
+
+### View HTML report
+
+```bash
+npx playwright show-report
+```
+
+### Run with debug mode
+
+```bash
+npx playwright test --debug
+```
+
+---
+
+## 🧩 Page Object Model
+
+The project uses the **Page Object Model (POM)** design pattern for maintainable and reusable test code.
+
+### Example: `LoginPage.ts`
+
+```typescript
 export class LoginPage {
   readonly usernameInput = page.getByPlaceholder("Username");
   readonly passwordInput = page.getByPlaceholder("Password");
@@ -136,7 +209,11 @@ export class LoginPage {
     await this.loginButton.click();
   }
 }
-Example: PimPage.ts
+```
+
+### Example: `PimPage.ts`
+
+```typescript
 export class PimPage {
   async navigateToPim() {
     /* ... */
@@ -148,39 +225,65 @@ export class PimPage {
     /* ... */
   }
 }
-📊 Data-Driven Testing
-Inline Data-Driven
+```
+
+---
+
+## 📊 Data-Driven Testing
+
+### Inline Data-Driven
+
 Tests login with multiple credentials defined inline:
 
-Username	Password	Expected Result
-Admin	admin123	Dashboard
-fakeuser	fakepass	Invalid credentials
-ESSUser1	ess123	Invalid credentials
-CSV Data-Driven
-Tests read test cases from test_data/loginData.csv:
+| Username | Password | Expected Result     |
+| -------- | -------- | ------------------- |
+| Admin    | admin123 | Dashboard           |
+| fakeuser | fakepass | Invalid credentials |
+| ESSUser1 | ess123   | Invalid credentials |
 
+### CSV Data-Driven
+
+Tests read test cases from `test_data/loginData.csv`:
+
+```csv
 Username,Password,Expected
 Admin,admin123,Dashboard
 fakeuser,fakepass,Invalid credentials
 ESSUser1,ess123,Invalid credentials
-🤖 Playwright MCP vs Playwright CLI
-Feature	Playwright CLI	Playwright MCP
-Purpose	Command-line tool for Playwright	AI bridge between LLM and Playwright
-Used By	Developers & Testers	AI Agents
-Input	Terminal commands	Natural language prompts
-Browser Control	Directly through Playwright scripts	Through AI + MCP Server
-Requires Coding	Yes	Minimal coding
-Generates Code	No	Yes (AI-generated)
-Executes Tests	Yes	Yes
-Uses Accessibility Tree	No	Yes
-Supports AI Automation	No	Yes
-Best For	Traditional automation	AI-powered automation
-📚 Resources
-Playwright Documentation
-Model Context Protocol
-OrangeHRM Demo
-GitHub Repository
-📄 License
-This project is for educational and demonstration purposes only.
+```
 
-Built with ❤️ using Playwright + MCP + AI
+---
+
+## 🤖 Playwright MCP vs Playwright CLI
+
+| Feature                 | Playwright CLI                      | Playwright MCP                       |
+| ----------------------- | ----------------------------------- | ------------------------------------ |
+| Purpose                 | Command-line tool for Playwright    | AI bridge between LLM and Playwright |
+| Used By                 | Developers & Testers                | AI Agents                            |
+| Input                   | Terminal commands                   | Natural language prompts             |
+| Browser Control         | Directly through Playwright scripts | Through AI + MCP Server              |
+| Requires Coding         | Yes                                 | Minimal coding                       |
+| Generates Code          | No                                  | Yes (AI-generated)                   |
+| Executes Tests          | Yes                                 | Yes                                  |
+| Uses Accessibility Tree | No                                  | Yes                                  |
+| Supports AI Automation  | No                                  | Yes                                  |
+| Best For                | Traditional automation              | AI-powered automation                |
+
+---
+
+## 📚 Resources
+
+- [Playwright Documentation](https://playwright.dev/docs/intro)
+- [Model Context Protocol](https://modelcontextprotocol.io)
+- [OrangeHRM Demo](https://opensource-demo.orangehrmlive.com)
+- [GitHub Repository](https://github.com/pavanoltraining/POC_Playwright_MCP_orangehrm)
+
+---
+
+## 📄 License
+
+This project is for **educational and demonstration purposes** only.
+
+---
+
+_Built with ❤️ using Playwright + MCP + AI_
